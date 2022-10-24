@@ -1,0 +1,22 @@
+<body>
+<mat-toolbar color="primary">
+  Movie Flix
+<ng-container *ngIf="authservice.currentUser$ | async as user; else loginButton">
+  <button mat-button (click)="logout()">
+       <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</ng-container>
+
+<ng-template #loginButton>
+  <button mat-button routerLink="login">
+    <mat-icon>login</mat-icon>
+    Login
+  </button>
+</ng-template>
+ 
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+</body>
